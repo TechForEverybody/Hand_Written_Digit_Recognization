@@ -1,6 +1,5 @@
 import joblib
 import cv2
-import matplotlib.pyplot as pyplot
 class Analyzer:
     def __init__(self,model_path) -> None:
         self.model = joblib.load(model_path)
@@ -9,8 +8,6 @@ class Analyzer:
         image_array=cv2.imread(image_path,cv2.IMREAD_GRAYSCALE)
         image_array=cv2.resize(image_array,self.resize_dimension)
         image_array=cv2.bitwise_not(image_array)
-        pyplot.imshow(image_array)
-        pyplot.show()
         temp_array=[]
         for i in image_array:
             for j in i:
